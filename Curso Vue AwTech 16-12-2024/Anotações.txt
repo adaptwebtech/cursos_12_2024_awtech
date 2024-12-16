@@ -1,0 +1,10 @@
+Caso ao usar o Vue Cli no terminal do VS Code esteja bloquqeado pelo power shell, rodar seguinte comando no power shell executado como administrador:
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+Provide/Inject
+O provide permite que você forneça dados para componentes descendentes em qualquer nível da árvore de componentes, e o inject permite que um componente receba dados de um componente ancestral.
+
+
+Mixins
+Mixins permitem a reutilização de lógica em componentes. Você pode definir um mixin com métodos, dados, etc., e incorporá-lo em vários componentes.

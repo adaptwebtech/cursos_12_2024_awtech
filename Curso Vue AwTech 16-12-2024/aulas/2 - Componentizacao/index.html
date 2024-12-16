@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Projeto Vue3 CDN</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    
+    <div id="app" class="p-3">
+
+        <Cabecalho>
+            <template v-slot:area_noticias>
+                <span>Área para notícias</span>
+            </template>
+        </Cabecalho>
+
+        <div class="mb-1 text-end">
+            <button class="btn btn-danger" @click="esconderCRM()">Esconder CRM</button>
+        </div>
+        <crm ref="CRM" :cards="cards"></crm>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.47"></script>
+
+    <!-- Componentes -->
+    <script src='componentes/header.js'></script>
+    <script src='main.js' type="module"></script>
+
+</body>
+</html>
