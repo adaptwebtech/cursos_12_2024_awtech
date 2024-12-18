@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  ffmpeg_driver:
+    image: jrottenberg/ffmpeg:latest
+    container_name: ffmpeg_driver
+    volumes:
+      - ./input:/tmp/workdir/input
+      - ./output:/tmp/workdir/output
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "apt-get update &&
+      apt-get install -y --no-install-recommends fonts-dejavu-core fontconfig &&
+      tail -f /dev/null"

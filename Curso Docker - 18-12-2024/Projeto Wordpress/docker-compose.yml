@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    restart: always
+    ports:
+      - "8080:80"  # Mapeia a porta 8080 do host para a porta 80 do container
+    environment:
+      WORDPRESS_DB_HOST: db:3306  # Conecta ao serviço 'db' na porta 3306
+      WORDPRESS_DB_NAME: wordpress  # Nome do banco de dados
+      WORDPRESS_DB_USER: root  # Usuário do banco de dados
+      WORDPRESS_DB_PASSWORD: example  # Senha do banco de dados
+
+  db:
+    image: mariadb:latest  # Usando a imagem oficial do MariaDB
+    container_name: wordpress_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example  # Senha do root para o MariaDB
+      MYSQL_ROOT_USER: root
+      MYSQL_DATABASE: wordpress  # Nome do banco de dados que será criado
+
+

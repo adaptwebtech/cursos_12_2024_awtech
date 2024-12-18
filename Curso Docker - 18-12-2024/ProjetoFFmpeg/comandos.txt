@@ -1,0 +1,14 @@
+docker compose up -d --build
+
+docker exec ffmpeg_driver ffmpeg -y -i ./input/SampleVideo_1280x720_1mb.mp4 ./output/teste.avi
+
+docker exec ffmpeg_driver ffmpeg -y -i ./input/SampleVideo_1280x720_1mb.mp4 \
+-vf "drawtext=text='Adaptweb':x=10:y=500:fontsize=50:fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:fontcolor=white" \
+./output/videoTexto.avi
+
+
+docker exec ffmpeg_driver ffmpeg -y -i ./input/SampleVideo_1280x720_30mb.mp4 -i ./input/logonova.png \
+-filter_complex "[1]scale=200:-1[watermark];[0][watermark]overlay=W-w-10:H-h-10" \
+-vcodec libx264 -acodec aac ./output/videoMarca.avi
+
+
